@@ -92,9 +92,31 @@ class course_renderer extends \core_course_renderer {
      * Obtém a duração do curso
      */
     private function get_course_duration($course) {
-        // Implementar lógica para calcular duração
-        return '60 horas'; 
+    global $DB;
+    // Certifica que $course é um objeto com suporte a campos personalizados
+    if ($course instanceof stdClass) {
+        $course = new core_course_list_element($course);
     }
+    // Valor padrão de fallback (caso campo esteja vazio)
+    $default = '60 horas';
+    $duration = null;
+
+    // Percorre os campos personalizados do curso em busca do campo 'duration'
+    foreach ($course->get_custom_fields() as $field) {
+        if ($field->get_field()->get('shortname') === 'duration') {
+            $duration = $field->get_value();  // obtém o valor armazenado no campo
+            break;
+        }
+    }
+
+    // Se um valor personalizado foi encontrado e não está vazio, retorna-o; senão retorna o padrão
+    if (!empty($duration)) {
+        return $duration;
+    } else {
+        return $default;
+    }
+}
+
     
     /**
      * Verifica se o curso tem certificado
