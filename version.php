@@ -2,7 +2,7 @@
 
 
 $plugin->component = 'theme_alfa';
-$plugin->version = 2025112500;
+$plugin->version = 202511250000;
 $plugin->requires = 2022041900;
 $plugin->dependencies = [
     'theme_boost' => ANY_VERSION
