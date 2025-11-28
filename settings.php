@@ -72,4 +72,28 @@ if ($ADMIN->fulltree) {
     ));
 
     $settings->add($page);
+
+    // 🔹 Página: Configurações Avançadas (SCSS)
+    // Aqui criamos a aba igual a do Boost
+    $page = new admin_settingpage('theme_alfa_advanced', get_string('advancedsettings', 'theme_alfa'));
+
+    // Campo: SCSS Puro Inicial (Variáveis)
+    $page->add(new admin_setting_configtextarea(
+        'theme_alfa/scsspre',
+        get_string('rawscss_pre', 'theme_alfa'),
+        get_string('rawscss_pre_desc', 'theme_alfa'),
+        '', // Valor padrão vazio
+        PARAM_RAW // Permite código cru
+    ));
+
+    // Campo: SCSS Puro (CSS Customizado)
+    $page->add(new admin_setting_configtextarea(
+        'theme_alfa/scss',
+        get_string('rawscss', 'theme_alfa'),
+        get_string('rawscss_desc', 'theme_alfa'),
+        '', // Valor padrão vazio
+        PARAM_RAW // Permite código cru
+    ));
+
+    $settings->add($page);
 }
