@@ -1,5 +1,5 @@
 <?php
-// Arquivo: /theme/alfa/lang/pt_br/theme_alfa.php
+
 
 defined('MOODLE_INTERNAL') || die();
 
