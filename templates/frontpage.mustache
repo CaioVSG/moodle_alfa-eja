@@ -82,8 +82,9 @@
             background-color: #fff;
             border: 2px solid #e9ecef;
             margin-bottom: 1.5rem;
-            max-width: 500px;
+            max-width: 100%;
             width: 100%;
+            min-width: 0;
         }
         
         .curso-card:hover {
@@ -94,18 +95,22 @@
         .curso-card .card-img-top-container {
             position: relative;
             overflow: hidden;
-            height: 200px;
+            height: auto;
+            min-height: 180px;
+            aspect-ratio: 16 / 9;
+            background-color: #421944;
         }
         
         .curso-card .card-img-top-container .curso-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center center;
             transition: transform 0.3s ease;
         }
         
         .curso-card .card-img-top-container:hover .curso-img {
-            transform: scale(1.05);
+            transform: none;
         }
         
         .curso-card .card-body {
@@ -202,10 +207,9 @@
         /* Layout em grid para os cards */
         .frontpage-course-list-all {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+            grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 colunas fixas */
             gap: 1.5rem;
             margin-top: 1.5rem;
-            justify-items: center;
         }
 
         /* Responsividade */
@@ -220,7 +224,7 @@
             }
             
             .curso-card .card-img-top-container {
-                height: 160px;
+                min-height: 150px;
             }
             
             .curso-card .card-body {

@@ -72,8 +72,9 @@ ul.list-frontpage li:nth-child(6)::before {
     }
 }
 .curso-img {
-    height: 160px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
     width: 100%;
 }
 .curso-info .info-item {
@@ -158,5 +159,107 @@ ul.list-frontpage li:nth-child(6)::before {
 /* Esconde o bloco de filtros/botões antigos */
 .block-myoverview [role="search"][data-region="filters"] {
     display: none !important;
+}
+
+.alfa-footer {
+    background-color: #421944;
+}
+
+.alfa-footer__waves-wrap {
+    background-color: #fff;
+}
+
+.alfa-footer__waves {
+    margin-bottom: 2rem;
+}
+
+.alfa-footer__main {
+    max-width: 1120px;
+}
+
+.alfa-footer__brand {
+    width: 205px;
+    height: auto;
+    margin-bottom: 0.75rem;
+}
+
+.alfa-footer__tagline {
+    font-size: 1rem;
+    color: #e6dde8;
+}
+
+.alfa-footer__menu li {
+    margin-bottom: 0.45rem;
+}
+
+.alfa-footer__menu li:last-child {
+    margin-bottom: 0;
+}
+
+.alfa-footer__menu a {
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: #fff !important;
+}
+
+.alfa-footer__divider {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 2.25rem 0 1rem;
+}
+
+.alfa-footer__divider--bottom {
+    margin: 2rem 0 0.9rem;
+}
+
+.alfa-footer__partners p {
+    letter-spacing: 0.02em;
+    color: #c4b2ca;
+}
+
+.alfa-footer__partner-title {
+    color: #D39EDB;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+.alfa-footer__partner-logo {
+    height: auto;
+}
+
+.alfa-footer__partner-logo--ipf {
+    max-width: 240px;
+}
+
+.alfa-footer__partner-logo--petrobras {
+    max-width: 260px;
+}
+
+.alfa-footer__legal {
+    font-size: 0.92rem;
+    text-transform: uppercase;
+    color: #efe8f1;
+    padding-bottom: 0.6rem;
+}
+
+@media (max-width: 991.98px) {
+    .alfa-footer__waves {
+        margin-bottom: 1.4rem;
+    }
+
+    .alfa-footer__menu {
+        margin-top: 0.8rem;
+    }
+
+    .alfa-footer__menu a {
+        font-size: 1.05rem;
+    }
+
+    .alfa-footer__legal {
+        font-size: 0.82rem;
+    }
 }
   

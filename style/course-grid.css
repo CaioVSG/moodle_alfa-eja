@@ -1,28 +1,58 @@
-/* Layout de Grid para Cards de Curso - 3 por fileira */
+/* Grid responsivo para cards de curso */
 
-/* Container principal dos cursos */
+/* Containers que exibem listas de cursos */
 .frontpage-course-list-all,
 .course-list,
 .courses-list,
 [data-region="course-list"],
 .course-cards-container,
 .course-list-container,
-.courses-container {
+.courses-container,
+.card-grid,
+[data-region="card-deck"] {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 2rem !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
     margin-top: 1.5rem !important;
     margin-bottom: 2rem !important;
+    align-items: stretch;
 }
 
-/* Cards individuais */
+/* Evita overflow horizontal de colunas/itens internos */
+.card-grid > .col,
+[data-region="card-deck"] > .col,
+.frontpage-course-list-all > * {
+    min-width: 0;
+}
+
+/* Em layout de grid, as colunas bootstrap viram wrappers comuns */
+.card-grid > .col,
+[data-region="card-deck"] > .col {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Card */
 .curso-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
     height: 100% !important;
     margin-bottom: 0 !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #e9ecef;
     border-radius: 12px;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fallback para contextos em que o tema force flex em vez de grid */
+.card-grid.row,
+[data-region="card-deck"].row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0 !important;
 }
 
 .curso-card:hover {
@@ -30,73 +60,103 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Imagens dos cards */
+/* Corrige corte do conteúdo em wrappers do Moodle */
+.block .content,
+.block_myoverview .content,
+.block-myoverview .content {
+    overflow: visible !important;
+}
+
+/* Imagens */
 .curso-img,
-.card-img-top {
-    height: 200px !important;
-    object-fit: cover !important;
+.card-img-top,
+.card-img-top-container img {
+    display: block;
     width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
 }
 
 .card-img-top-container {
-    height: 200px !important;
+    height: auto !important;
+    min-height: 180px;
+    aspect-ratio: 16 / 9;
+    background-color: #421944;
     overflow: hidden;
 }
 
-.card-img-top-container img {
-    height: 100% !important;
-    object-fit: cover !important;
-    width: 100% !important;
-}
-
-/* Responsividade para tablets */
-@media (max-width: 991px) {
-    .frontpage-course-list-all,
-    .course-list,
-    .courses-list,
-    [data-region="course-list"],
-    .course-cards-container,
-    .course-list-container,
-    .courses-container {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1.5rem !important;
-    }
-}
-
-/* Responsividade para mobile */
-@media (max-width: 575px) {
-    .frontpage-course-list-all,
-    .course-list,
-    .courses-list,
-    [data-region="course-list"],
-    .course-cards-container,
-    .course-list-container,
-    .courses-container {
-        grid-template-columns: 1fr !important;
-        gap: 1rem !important;
-    }
-    
-    .curso-img,
-    .card-img-top,
-    .card-img-top-container {
-        height: 160px !important;
-    }
-}
-
-/* Override para Bootstrap grid se necessário */
-.row .col-md-4,
-.row .col-lg-4 {
-    flex: 0 0 auto !important;
-    width: 100% !important;
-}
-
-/* Garantir que os cards tenham altura igual */
+/* Corpo do card */
 .curso-card .card-body {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 0;
+    height: auto !important;
 }
 
 .curso-card .card-body .curso-actions {
     margin-top: auto;
-} 
+}
+
+/* Desktop grande (>= 1280px): 3 colunas confortáveis */
+@media (min-width: 1280px) {
+    .frontpage-course-list-all,
+    .course-list,
+    .courses-list,
+    [data-region="course-list"],
+    .course-cards-container,
+    .course-list-container,
+    .courses-container,
+    .card-grid,
+    [data-region="card-deck"] {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 1.75rem !important;
+    }
+}
+
+/* Tablet (<= 768px): 2 colunas */
+@media (max-width: 768px) {
+    .frontpage-course-list-all,
+    .course-list,
+    .courses-list,
+    [data-region="course-list"],
+    .course-cards-container,
+    .course-list-container,
+    .courses-container,
+    .card-grid,
+    [data-region="card-deck"] {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1rem !important;
+    }
+
+    .curso-img,
+    .card-img-top,
+    .card-img-top-container,
+    .card-img-top-container img {
+        height: 100% !important;
+    }
+}
+
+/* Mobile (<= 360px): 1 coluna */
+@media (max-width: 360px) {
+    .frontpage-course-list-all,
+    .course-list,
+    .courses-list,
+    [data-region="course-list"],
+    .course-cards-container,
+    .course-list-container,
+    .courses-container,
+    .card-grid,
+    [data-region="card-deck"] {
+        grid-template-columns: 1fr !important;
+        gap: 0.875rem !important;
+    }
+
+    .curso-img,
+    .card-img-top,
+    .card-img-top-container,
+    .card-img-top-container img {
+        height: 100% !important;
+    }
+}

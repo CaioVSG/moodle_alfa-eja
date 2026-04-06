@@ -1,52 +1,51 @@
 {{> theme_boost/footer }}
-<footer class="footer text-light pb-3" style="background-color: #421944">
-    
-    <img src="{{config.wwwroot}}/theme/alfa/pix/linhas.svg" alt="" width="100%" class="d-block mb-4">
-
-    <div class="d-flex justify-content-around align-items-center">
-    
-        <div class="text-center mx-5">
-            <img src="{{config.wwwroot}}/theme/alfa/pix/logo_rodape_alfa_eja_brasil.svg" alt="Logo do sistema" width="200px" height="100px">
-            <p>{{ get_config('theme_alfa', 'footertext') }}</p>
-        </div>   
-
-        <div class="mx-5">
-            <ul class="list-unstyled">
-                <li><a href="youtube.com" class="text-reset text-decoration-none">Início</a></li>
-                <li><a href="youtube.com" class="text-reset text-decoration-none">Blog</a></li>
-                <li><a href="youtube.com" class="text-reset text-decoration-none">Podcast</a></li>
-                <li><a href="youtube.com" class="text-reset text-decoration-none">Materiais gratuitos</a></li>
-            </ul>
-        </div>
-
-        <div class="mx-5">
-            <ul class="list-unstyled">
-                <li><a href="youtube.com" class="text-reset text-decoration-none">O projeto ALFA-EJA Brasil</a></li>
-                <li><a href="youtube.com" class="text-reset text-decoration-none">Termos de uso</a></li>
-                <li><a href="youtube.com" class="text-reset text-decoration-none">Políticas de privacidade</a></li>
-                <li><a href="youtube.com" class="text-reset text-decoration-none">Contato</a></li>
-            </ul>
-        </div>
- 
+<footer class="footer text-light pb-3 alfa-footer">
+    <div class="alfa-footer__waves-wrap">
+        <img src="{{config.wwwroot}}/theme/alfa/pix/linhas.svg" alt="" class="alfa-footer__waves d-block w-100">
     </div>
 
-    <hr class="border-secondary my-5">
+    <div class="container alfa-footer__main">
+        <div class="row justify-content-between align-items-start">
+            <div class="col-12 col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+                <img src="{{config.wwwroot}}/theme/alfa/pix/logo_rodape_alfa_eja_brasil.svg" alt="Logo do sistema" class="alfa-footer__brand">
+                <p class="alfa-footer__tagline mb-0">{{ get_config('theme_alfa', 'footertext') }}</p>
+            </div>
 
-    <div class="d-flex justify-content-center">
-        <div class="mx-5 text-center">
-            <p class="small font-weight-bold text-uppercase mb-5">Realização</p>
-            <img src="{{config.wwwroot}}/theme/alfa/pix/logo_rodape_ipf.svg" alt="Logo do IPF">
+            <div class="col-6 col-lg-3">
+                <ul class="list-unstyled alfa-footer__menu mb-0">
+                    <li><a href="youtube.com" class="text-reset text-decoration-none">In&iacute;cio</a></li>
+                    <li><a href="youtube.com" class="text-reset text-decoration-none">Blog</a></li>
+                    <li><a href="youtube.com" class="text-reset text-decoration-none">Podcast</a></li>
+                    <li><a href="youtube.com" class="text-reset text-decoration-none">Materiais</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <ul class="list-unstyled alfa-footer__menu mb-0">
+                    <li><a href="youtube.com" class="text-reset text-decoration-none">O projeto ALFA-EJA Brasil</a></li>
+                    <li><a href="youtube.com" class="text-reset text-decoration-none">Pol&iacute;tica de privacidade</a></li>
+                    <li><a href="youtube.com" class="text-reset text-decoration-none">Termos de uso</a></li>
+                    <li><a href="youtube.com" class="text-reset text-decoration-none">Contato</a></li>
+                </ul>
+            </div>
         </div>
 
-        <div class="mx-5 text-center">
-            <p class="small font-weight-bold text-uppercase mb-5">Parceria</p>
-            <img src="{{config.wwwroot}}/theme/alfa/pix/petrobras-white.svg" alt="Logo da petrobrás">
+        <hr class="alfa-footer__divider">
+
+        <div class="row justify-content-center text-center alfa-footer__partners">
+            <div class="col-12 col-md-5 col-lg-4 mb-4 mb-md-0">
+                <p class="alfa-footer__partner-title mb-3">Realiza&ccedil;&atilde;o</p>
+                <img src="{{config.wwwroot}}/theme/alfa/pix/logo_rodape_ipf.svg" alt="Logo do IPF" class="alfa-footer__partner-logo alfa-footer__partner-logo--ipf">
+            </div>
+
+            <div class="col-12 col-md-5 col-lg-4">
+                <p class="alfa-footer__partner-title mb-3">Parceria</p>
+                <img src="{{config.wwwroot}}/theme/alfa/pix/petrobras-white.svg" alt="Logo da Petrobras" class="alfa-footer__partner-logo alfa-footer__partner-logo--petrobras">
+            </div>
         </div>
-    </div>
 
-    <hr class="border-secondary my-5">
+        <hr class="alfa-footer__divider alfa-footer__divider--bottom">
 
-    <div class="">
-        <p class="text-center">INSTITUTO DE EDUCAÇÃO E DIREITOS HUMANOS PAULO FREIRE | CNPJ 04.950.603/0001-05</p>
+        <p class="alfa-footer__legal text-center mb-0">INSTITUTO DE EDUCA&Ccedil;&Atilde;O E DIREITOS HUMANOS PAULO FREIRE | CNPJ 04.950.603/0001-05</p>
     </div>
 </footer>
