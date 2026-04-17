@@ -92,30 +92,30 @@ class course_renderer extends \core_course_renderer {
      * Obtém a duração do curso
      */
     private function get_course_duration($course) {
-    global $DB;
-    // Certifica que $course é um objeto com suporte a campos personalizados
-    if ($course instanceof stdClass) {
-        $course = new core_course_list_element($course);
-    }
-    // Valor padrão de fallback (caso campo esteja vazio)
-    $default = '60 horas';
-    $duration = null;
+        $courseid = is_object($course) ? $course->id : $course;
+        $default = '60 horas'; // Valor padrão caso o campo personalizado não exista ou esteja vazio
+        try {
+            // Handler de campos personalizados
+            $handler = \core_customfield\handler::get_handler('core_course', 'course');
+            
+            // Pega os dados dos campos do curso
+            $data = $handler->get_instance_data($courseid);
 
-    // Percorre os campos personalizados do curso em busca do campo 'duration'
-    foreach ($course->get_custom_fields() as $field) {
-        if ($field->get_field()->get('shortname') === 'duration') {
-            $duration = $field->get_value();  // obtém o valor armazenado no campo
-            break;
+            foreach ($data as $fielddata) {
+                if ($fielddata->get_field()->get('shortname') === 'duration') {
+                    $duration = $fielddata->export_value();
+                    
+                    // Se o campo existir mas estiver vazio, usamos o default
+                    return !empty($duration) ? $duration : $default;
+                }
+            }
+        } catch (\Exception $e) {
+            // Log do erro no debug do Moodle (opcional) para você saber se algo quebrou
+            debugging('Erro ao buscar duração do curso ' . $courseid . ': ' . $e->getMessage(), DEBUG_DEVELOPER);
+            return $default;
         }
-    }
-
-    // Se um valor personalizado foi encontrado e não está vazio, retorna-o; senão retorna o padrão
-    if (!empty($duration)) {
-        return $duration;
-    } else {
         return $default;
     }
-}
 
     
     /**
