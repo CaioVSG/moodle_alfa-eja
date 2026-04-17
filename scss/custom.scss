@@ -3,6 +3,15 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+body#page-course-view-remuiformat .course-content .sections .general-section .section-title,
+body#page-course-view-remuiformat .course-content .sections .general-section .section-title a {
+    color: #8A04A1 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 45px !important;
+    font-weight: 700 !important;
+    line-height: 1.2;
+}
+
 #frontpage-1 h1,
 #frontpage-1 p,
 #frontpage-1 span {
@@ -166,11 +175,25 @@ ul.list-frontpage li:nth-child(6)::before {
 }
 
 .alfa-footer__waves-wrap {
-    background-color: #fff;
+    background-color: #421944;
+    position: relative;
+}
+
+.alfa-footer__waves-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 34%;
+    background-color: #F5F5F5;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .alfa-footer__waves {
     margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .alfa-footer__main {
@@ -178,7 +201,7 @@ ul.list-frontpage li:nth-child(6)::before {
 }
 
 .alfa-footer__brand {
-    width: 205px;
+    width: 383px;
     height: auto;
     margin-bottom: 0.75rem;
 }
@@ -189,7 +212,7 @@ ul.list-frontpage li:nth-child(6)::before {
 }
 
 .alfa-footer__menu li {
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.9rem;
 }
 
 .alfa-footer__menu li:last-child {
@@ -197,7 +220,7 @@ ul.list-frontpage li:nth-child(6)::before {
 }
 
 .alfa-footer__menu a {
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     line-height: 1.3;
     color: #fff !important;
 }
@@ -218,7 +241,7 @@ ul.list-frontpage li:nth-child(6)::before {
 }
 
 .alfa-footer__partner-title {
-    color: #D39EDB;
+    color: #D39EDB !important;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 1rem;
