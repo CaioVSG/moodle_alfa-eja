@@ -107,8 +107,8 @@ $THEME->layouts = [
 
 // Suporte a blocos:
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
-$CFG->themedesignermode = true;
-$THEME->supportscssoptimisation = false;
+//$CFG->themedesignermode = true;
+$THEME->supportscssoptimisation = true;
 
 // Suporte a editor TinyMCE:
 // $THEME->editor_sheets = ['editor'];
