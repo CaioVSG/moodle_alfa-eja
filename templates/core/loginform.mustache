@@ -126,6 +126,46 @@
     color: #0b57d0;
     text-decoration: underline;
 }
+
+.login-form-alert {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: #e8e6ff;
+    border: 1px solid #d4d0ff;
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1rem;
+    color: #4a2e92;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.login-form-alert__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    min-width: 2.2rem;
+    border-radius: 50%;
+    background: #5f52e7;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 0 0 2px rgba(95, 82, 231, 0.12);
+}
+
+.login-form-alert__text {
+    font-size: 1.05rem;
+    color: #4a2e92;
+}
+
+.login-form-alert__text strong {
+    font-weight: 800;
+    color: #3b2a7d;
+}
 </style>
     
     {{#maintenance}}
@@ -159,6 +199,13 @@
                     {{/canloginbyemail}}
                 </label>
                 <input type="text" name="username" id="username" class="form-control form-control-lg" value="{{username}}" placeholder="Digite seu CPF" autocomplete="username">
+            </div>
+            <div class="login-form-alert" role="alert" aria-live="polite">
+                <div class="login-form-alert__icon">i</div>
+                <div class="login-form-alert__text">
+                    Digite seu CPF somente com números, sem pontos e sem traços.<br>
+                    Exemplo: <strong>12345678900</strong>
+                </div>
             </div>
             <div class="login-form-password mb-3">
                 <label for="password" class="sr-only">{{#str}} password {{/str}}</label>
